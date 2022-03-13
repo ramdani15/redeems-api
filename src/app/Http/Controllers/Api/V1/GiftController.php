@@ -541,8 +541,8 @@ class GiftController extends Controller
     /**
      * @OA\Post(
      *      path="/api/v1/gifts/{id}/like",
-     *      summary="Like / Unlike Gift",
-     *      description="Like / Unlike Gift",
+     *      summary="Like / Unlike Redeemed Gift",
+     *      description="Like / Unlike Redeemed Gift",
      *      tags={"Gifts"},
      *      security={
      *          {"token": {}}
@@ -580,7 +580,7 @@ class GiftController extends Controller
      *          response=500,
      *          description="Internal Server error",
      *          @OA\JsonContent(
-     *              @OA\Property(property="message", type="string", example="Failed to Delete Gift."),
+     *              @OA\Property(property="message", type="string", example="Failed to Like / Unlike Redeemed Gift."),
      *              @OA\Property(property="code", type="number", example=500),
      *              @OA\Property(property="error", type="string", example="Something Wrong."),
      *          )
@@ -596,6 +596,11 @@ class GiftController extends Controller
                 return $this->responseJson('error', 'Gift Not Found', '', 404);
             }
             $userId = auth()->id();
+            // Check Redeem
+            $order = $gift->orders()->whereUserId($userId)->first();
+            if (!$order) {
+                return $this->responseJson('error', "You haven't redeem this gift", '', 400);
+            }
             $like = $gift->likes()->whereUserId($userId)->first();
             if ($like) {
                 $like->delete();
@@ -610,7 +615,7 @@ class GiftController extends Controller
             }
             return $this->responseJson('success', $message);
         } catch (\Throwable $th) {
-            return $this->responseJson('error', 'Failed to Delete Gift.', $th, $th->getCode() ?? 500);
+            return $this->responseJson('error', 'Failed to Like / Unlike Redeemed Gift.', $th, $th->getCode() ?? 500);
         }
     }
 
@@ -691,8 +696,8 @@ class GiftController extends Controller
     /**
      * @OA\Post(
      *      path="/api/v1/gifts/{id}/rating",
-     *      summary="Rating Gift",
-     *      description="Give Rating Gift",
+     *      summary="Rating Redeemed Gift",
+     *      description="Give Rating Redeemed Gift",
      *      tags={"Gifts"},
      *      security={
      *          {"token": {}}
@@ -738,7 +743,7 @@ class GiftController extends Controller
      *          response=500,
      *          description="Internal Server error",
      *          @OA\JsonContent(
-     *              @OA\Property(property="message", type="string", example="Failed to Rating Gift."),
+     *              @OA\Property(property="message", type="string", example="Failed to Rating Redeemed Gift."),
      *              @OA\Property(property="code", type="number", example=500),
      *              @OA\Property(property="error", type="string", example="Something Wrong."),
      *          )
@@ -755,6 +760,11 @@ class GiftController extends Controller
             }
             $data = $request->validated();
             $userId = auth()->id();
+            // Check Redeem
+            $order = $gift->orders()->whereUserId($userId)->first();
+            if (!$order) {
+                return $this->responseJson('error', "You haven't redeem this gift", '', 400);
+            }
             $rating = $gift->ratings()->whereUserId($userId)->first();
             if ($rating) {
                 $rating->update($data);
@@ -770,7 +780,7 @@ class GiftController extends Controller
             }
             return $this->responseJson('success', $message);
         } catch (\Throwable $th) {
-            return $this->responseJson('error', 'Failed to Rating Gift.', $th, $th->getCode() ?? 500);
+            return $this->responseJson('error', 'Failed to Rating Redeemed Gift.', $th, $th->getCode() ?? 500);
         }
     }
 

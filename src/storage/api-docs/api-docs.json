@@ -1094,8 +1094,8 @@
                 "tags": [
                     "Gifts"
                 ],
-                "summary": "Like / Unlike Gift",
-                "description": "Like / Unlike Gift",
+                "summary": "Like / Unlike Redeemed Gift",
+                "description": "Like / Unlike Redeemed Gift",
                 "operationId": "be12778f29632e3c29be466fb7fedfdf",
                 "parameters": [
                     {
@@ -1173,7 +1173,7 @@
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "Failed to Delete Gift."
+                                            "example": "Failed to Like / Unlike Redeemed Gift."
                                         },
                                         "code": {
                                             "type": "number",
@@ -1300,8 +1300,8 @@
                 "tags": [
                     "Gifts"
                 ],
-                "summary": "Rating Gift",
-                "description": "Give Rating Gift",
+                "summary": "Rating Redeemed Gift",
+                "description": "Give Rating Redeemed Gift",
                 "operationId": "ff9352651c7b950d6b9551c7402f7e73",
                 "parameters": [
                     {
@@ -1399,7 +1399,7 @@
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "Failed to Rating Gift."
+                                            "example": "Failed to Rating Redeemed Gift."
                                         },
                                         "code": {
                                             "type": "number",

@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UsersTableSeeder::class);
         $this->call(RoleTableSeeder::class);
         \App\Models\Gift::factory(10)->create();
-        \App\Models\GiftLike::factory(10)->create();
-        \App\Models\GiftRating::factory(10)->create();
+        // \App\Models\GiftLike::factory(10)->create();
+        // \App\Models\GiftRating::factory(10)->create();
     }
 }
