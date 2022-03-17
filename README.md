@@ -5,13 +5,11 @@ The project is a simple API for redeeming items with points, likes, and give rat
 
 
 ## Tech Specs
-- Environtment / Deploying : **Docker** (`Docker Compose`)
-- Programming Language : **PHP 8** (`8.1`)
-- Framerwork : **Laravel 8** (`8.83`)
-- Database : **MySQL** (`5.7`)
-- Database Panel : **phpMyAdmin** (`5.1`)
-- API Docs : **Swagger** (`8.3`)
-- RBAC (Role Base Access Control) : **Laravel Entrust** (`v2.2`)
+- **Docker** (`Docker Compose`)
+- **PHP 8** (`8.1`)
+- **Laravel 8** (`8.83`)
+- **MySQL** (`5.7`)
+- **Swagger** (`8.3`)
 
 ## Requirements
 Before setup the project, you need to install this : 
