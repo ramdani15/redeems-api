@@ -1,4 +1,4 @@
-<h1 align="center">Simple Orders API</h1>
+<h1 align="center">Redeems API</h1>
 
 ## About
 The project is a simple API for redeeming items with points, likes, and give ratings. Also available for managing users by super admin.
